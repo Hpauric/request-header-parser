@@ -1,12 +1,19 @@
 var express = require('express');
 var app = express();
-var url = require('url');
+var ip;
+var ua;
+
 
 
 app.get('/*', function(req, res) {
-  url = url.parse(req.url, true);
   
-  res.send(req);
+  
+  res.locals.ua = req.get('User-Agent');
+  
+  ip = req.connection.remoteAddress;
+  ua = req.get('User-Agent');
+  
+  res.send(ip + '\n' + ua);
 });
 
 app.listen(process.env.PORT, process.env.IP, function() {
