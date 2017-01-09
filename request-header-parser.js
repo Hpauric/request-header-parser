@@ -8,19 +8,15 @@ var language;
 var whoAmIJSON;
 
 app.get('/*', function(req, res) {
-
   ip = req.connection.remoteAddress;
   operatingSystem = useragent.parse(req.headers['user-agent']);
   language = parser.parse(req.headers["accept-language"]);
-  language = language[0].code + '-' + language[0].region;
-  
+  language = language[0].code + '-' + language[0].region;  
   whoAmIJSON = JSON.stringify({
     "ipaddress": ip,
     "language": language,
     "software": operatingSystem.os.family
   });
-  
-
   res.send(whoAmIJSON);
 });
 
