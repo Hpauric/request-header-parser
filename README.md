@@ -1,6 +1,6 @@
 # Request header parser
 
-An API that tells the user their IP address, language, and operating system for their browser.
+An API that tells the user the IP address, language, and operating system of their browser.
 
 ## Example Output
 ```
