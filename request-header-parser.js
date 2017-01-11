@@ -7,7 +7,7 @@ var operatingSystem;
 var language;
 var whoAmIJSON;
 
-app.get('/*', function(req, res) {
+app.get('/', function(req, res) {
   ip = req.connection.remoteAddress;
   operatingSystem = useragent.parse(req.headers['user-agent']);
   language = parser.parse(req.headers["accept-language"]);
